@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family: Verdana, Tahoma;
+  font-weight: 900;
+}
+
+.gallery {
+  margin: auto;
+  width: 70%;
+  display: column;
+  columns: 4;
+  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+}
+
+@supports (grid-template-rows: masonry) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: masonry;
+    display: grid;
+  }
+}
+.thumbnail {
+  margin: 2px auto;
+  display: block;
+  background-color: black;
+  width: 200px;
+  position: relative;
+  opacity: 1;
+}
+.gallery_image {
+  min-height: 100%;
+  opacity: 1;
+}
+.thumbnail:hover .gallery_image {
+  opacity: 0.5;
+}
+.img_title {
+  opacity: 0;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  padding-left: 3px;
+  text-align: left;
+  font-family: Verdana, Tahoma;
+  /* font-size: 2.25em; */
+  font-weight: 300;
+  color: white;
+  transition: opacity 0.5s linear;
+}
+
+.thumbnail:hover .img_title {
+  opacity: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 200px;
+}
+
+/* Modal Presentation */
+.modal {
+  display: none;
+  z-index: 1;
+  width: 100%; /* Full width */
+  height: 100%;
+  top: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.modal_content {
+  background-color: white;
+  text-align: center;
+  width: 70%;
+  height: 70%;
+  position: relative;
+}
+.close {
+  color: rgba(255, 255, 255, 0.7);
+  right: 30px;
+  top: 10px;
+  position: absolute;
+  font-size: 3em;
+  cursor: pointer;
+}
+.close:hover {
+  color: black;
+}
+.frame {
+  width: 100%;
+  height: 100%;
+}
